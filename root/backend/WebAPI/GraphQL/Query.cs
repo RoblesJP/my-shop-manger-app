@@ -24,9 +24,9 @@ namespace WebAPI.GraphQL
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Bolsa> GetBolsas([Service] ForrajeriaContext context)
+        public IQueryable<Categoria> GetCategorias([Service] ForrajeriaContext context)
         {
-            return context.Bolsas;
+            return context.Categorias;
         }
     }
 }

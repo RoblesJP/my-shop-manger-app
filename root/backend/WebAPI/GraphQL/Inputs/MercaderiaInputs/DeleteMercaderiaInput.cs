@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace WebAPI.GraphQL.Inputs
 {
     public record DeleteMercaderiaInput
-        (
-            int Id
-        );
+    (
+        int Id
+    );
 }

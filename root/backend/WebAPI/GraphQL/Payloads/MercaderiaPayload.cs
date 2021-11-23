@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,13 +7,15 @@ using WebAPI.Models;
 
 namespace WebAPI.GraphQL.Payloads
 {
-    public class AddMercaderiaPayload
+    public class MercaderiaPayload
     {
-        public AddMercaderiaPayload(Mercaderia mercaderia)
+        public Mercaderia Mercaderia { get; }
+
+        public MercaderiaPayload(Mercaderia mercaderia)
         {
             Mercaderia = mercaderia; 
         }
 
-        public Mercaderia Mercaderia { get; }
+        
     }
 }

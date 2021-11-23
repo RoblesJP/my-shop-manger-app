@@ -6,13 +6,13 @@ using WebAPI.Models;
 
 namespace WebAPI.GraphQL.Payloads
 {
-    public class DeleteMercaderiaPayload
+    public class CategoriaPayload
     {
-        public DeleteMercaderiaPayload(Mercaderia mercaderia)
-        {
-            Mercaderia = mercaderia;
-        }
+        public Categoria Categoria { get; }
 
-        public Mercaderia Mercaderia { get; }
+        public CategoriaPayload(Categoria categoria)
+        {
+            Categoria = categoria;
+        }
     }
 }

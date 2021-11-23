@@ -13,4 +13,5 @@ namespace WebAPI.GraphQL.Inputs
         int? PrecioPorKg,
         int? PrecioPor100gr
     );
+
 }

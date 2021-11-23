@@ -20,12 +20,6 @@ namespace WebAPI.Data
         {
             modelBuilder
                 .Entity<Mercaderia>()
-                .HasMany(b => b.Bolsas)
-                .WithOne(b => b.Mercaderia)
-                .HasForeignKey(b => b.IdMercaderia);
-
-            modelBuilder
-                .Entity<Mercaderia>()
                 .HasOne(m => m.Categoria)
                 .WithMany()
                 .HasForeignKey(m => m.IdCategoria);
@@ -36,10 +30,11 @@ namespace WebAPI.Data
                 .UsePropertyAccessMode(PropertyAccessMode.Property);
 
             modelBuilder
-                .Entity<Bolsa>()
-                .HasOne(b => b.Mercaderia)
-                .WithMany(m => m.Bolsas)
-                .HasForeignKey(b => b.IdMercaderia);
+                .Entity<Mercaderia>()
+                .OwnsMany(m => m.Bolsas, b =>
+                {
+                    b.WithOwner().HasForeignKey(b => b.IdMercaderia);
+                });
         }
     }
 }

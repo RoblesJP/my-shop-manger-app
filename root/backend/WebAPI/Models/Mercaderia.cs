@@ -9,14 +9,13 @@ namespace WebAPI.Models
 {
     public class Mercaderia
     {
-        private string nombre;
-
         [Key]
         [Column("id_mercaderia")]
         public int IdMercaderia { get; set; }
 
         [Required]
-        public string Nombre { get => nombre; set => nombre = value.ToUpper(); }
+        [Column("nombre")]
+        public string Nombre { get; set; }
 
         [Required]
         [Column("id_categoria")]
@@ -30,6 +29,6 @@ namespace WebAPI.Models
 
 #nullable enable
         public Categoria? Categoria { get; set; }
-        public IList<Bolsa>? Bolsas { get; set; }
+        public ICollection<Bolsa>? Bolsas { get; set; }
     }
 }

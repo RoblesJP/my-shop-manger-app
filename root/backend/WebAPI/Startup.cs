@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
 using WebAPI.GraphQL;
+using WebAPI.GraphQL.Mutations;
 
 namespace WebAPI
 {

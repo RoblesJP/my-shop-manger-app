@@ -27,8 +27,5 @@ namespace WebAPI.Models
 
         [Column("precio_compra")]
         public int? PrecioCompra { get; set; }
-
-
-        public Mercaderia Mercaderia { get; set; }
     }
 }
