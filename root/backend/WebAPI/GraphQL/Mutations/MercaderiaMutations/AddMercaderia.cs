@@ -10,7 +10,7 @@ using WebAPI.Models;
 
 namespace WebAPI.GraphQL.Mutations
 {
-    public partial class Mutation
+    public partial class Mutations
     {
         public async Task<MercaderiaPayload> AddMercaderiaAsync([Service] ForrajeriaContext context, AddMercaderiaInput input)
         {

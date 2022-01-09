@@ -24,10 +24,7 @@ namespace WebAPI.Data
                 .WithMany()
                 .HasForeignKey(m => m.IdCategoria);
 
-            modelBuilder
-                .Entity<Mercaderia>()
-                .Navigation(t => t.Categoria)
-                .UsePropertyAccessMode(PropertyAccessMode.Property);
+           
 
             modelBuilder
                 .Entity<Mercaderia>()

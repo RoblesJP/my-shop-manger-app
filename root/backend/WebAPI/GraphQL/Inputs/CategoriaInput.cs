@@ -9,4 +9,13 @@ namespace WebAPI.GraphQL.Inputs
     (
         string NombreCategoria
     );
+    public record DeleteCategoriaInput
+    (
+        int IdCategoria
+    );
+    public record UpdateCategoriaInput
+    (
+        int IdCategoria,
+        string NombreCategoria
+    );
 }

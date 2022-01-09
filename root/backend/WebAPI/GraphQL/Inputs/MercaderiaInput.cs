@@ -12,4 +12,16 @@ namespace WebAPI.GraphQL.Inputs
         int? PrecioPorKg,
         int? PrecioPor100gr
     );
+    public record UpdateMercaderiaInput
+    (
+        int IdMercaderia,
+        string Nombre,
+        int IdCategoria,
+        int? PrecioPorKg,
+        int? PrecioPor100gr
+    );
+    public record DeleteMercaderiaInput
+    (
+        int Id
+    );
 }

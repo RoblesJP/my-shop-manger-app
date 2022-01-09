@@ -36,12 +36,12 @@ namespace WebAPI
 
             services
                 .AddDbContext<ForrajeriaContext>
-                    (options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                    (options => options.UseNpgsql(Configuration.GetConnectionString("SupabaseDB")));
 
             services
                 .AddGraphQLServer()
                 .AddQueryType<Query>()
-                .AddMutationType<Mutation>()
+                .AddMutationType<Mutations>()
                 .AddFiltering()
                 .AddSorting()
                 .AddProjections();

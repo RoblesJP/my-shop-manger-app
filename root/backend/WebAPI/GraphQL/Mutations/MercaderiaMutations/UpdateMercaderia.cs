@@ -10,7 +10,7 @@ using WebAPI.Models;
 
 namespace WebAPI.GraphQL.Mutations
 {
-    public partial class Mutation
+    public partial class Mutations
     {
         public async Task<MercaderiaPayload> UpdateMercaderiaAsync([Service] ForrajeriaContext context, UpdateMercaderiaInput input)
         {
@@ -23,7 +23,7 @@ namespace WebAPI.GraphQL.Mutations
                 PrecioPor100gr = input.PrecioPor100gr
             };
 
-            context.Update(mercaderia);
+            context.Mercaderia.Update(mercaderia);
             await context.SaveChangesAsync();
 
             return new MercaderiaPayload(mercaderia);

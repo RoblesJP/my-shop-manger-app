@@ -10,13 +10,13 @@ using WebAPI.Models;
 
 namespace WebAPI.GraphQL.Mutations
 {
-    public partial class Mutation
+    public partial class Mutations
     {
         public async Task<CategoriaPayload> DeleteCategoriaAsync([Service] ForrajeriaContext context, DeleteCategoriaInput input)
         {
             Categoria categoria = context.Categorias.Find(input.IdCategoria);
 
-            context.Remove(categoria);
+            context.Categorias.Remove(categoria);
             await context.SaveChangesAsync();
 
             return new CategoriaPayload(categoria);

@@ -21,6 +21,11 @@ namespace WebAPI.GraphQL
             return context.Mercaderia;
         }
 
+        public Mercaderia GetMercaderiaById([Service] ForrajeriaContext context, int id)
+        {
+            return context.Mercaderia.Find(id);
+        }
+
         [UseProjection]
         [UseFiltering]
         [UseSorting]
@@ -28,5 +33,7 @@ namespace WebAPI.GraphQL
         {
             return context.Categorias;
         }
+
+        
     }
 }

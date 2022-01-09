@@ -5,18 +5,19 @@ using WebAPI.GraphQL.Inputs;
 using WebAPI.GraphQL.Payloads;
 using WebAPI.Models;
 
-namespace WebAPI.GraphQL.Mutations
+namespace WebAPI.GraphQL.Mutations.CategoriasMutations
 {
     public partial class Mutations
     {
-        public async Task<CategoriaPayload> AddCategoriaAsync([Service] ForrajeriaContext context, AddCategoriaInput input)
+        public async Task<CategoriaPayload> UpdateCategoria([Service] ForrajeriaContext context, UpdateCategoriaInput input)
         {
-            var categoria = new Categoria
+            Categoria categoria = new Categoria()
             {
+                IdCategoria = input.IdCategoria,
                 NombreCategoria = input.NombreCategoria
             };
 
-            context.Categorias.Add(categoria);
+            context.Categorias.Update(categoria);
             await context.SaveChangesAsync();
 
             return new CategoriaPayload(categoria);
