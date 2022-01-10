@@ -25,6 +25,4 @@ const app = createApp({
   
   render: () => h(App),
 });
-
-
 app.mount('#app');
