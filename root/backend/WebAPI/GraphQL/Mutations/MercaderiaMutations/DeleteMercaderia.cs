@@ -1,4 +1,5 @@
 ﻿using HotChocolate;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,10 @@ namespace WebAPI.GraphQL.Mutations
     {
         public async Task<MercaderiaPayload> DeleteMercaderiaAsync([Service] ForrajeriaContext context, DeleteMercaderiaInput input)
         {
-            Mercaderia mercaderia = context.Mercaderia.Find(input.Id);
+            var mercaderia = context.Mercaderia
+                                           .Where(m => m.IdMercaderia == input.Id)
+                                           .Include("Categoria")
+                                           .FirstOrDefault();
 
             context.Mercaderia.Remove(mercaderia);
             await context.SaveChangesAsync();
