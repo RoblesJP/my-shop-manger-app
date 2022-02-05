@@ -27,9 +27,7 @@
 import { GET_ALL_MERCADERIA, DELETE_MERCADERIA } from "../graphql/Mercaderia.js";
 import { useQuery, useMutation } from "@vue/apollo-composable";
 export default {
-  props: {
-    data: {},
-  },
+  name: "MercaderiaTable",
 
   setup() {
     const { result, loading, error } = useQuery(GET_ALL_MERCADERIA);
@@ -37,7 +35,8 @@ export default {
       {
         update(cache, { data: { deleteMercaderia } }) {
           const existingMercaderia = cache.readQuery({ query: GET_ALL_MERCADERIA });
-          const newMercaderia = existingMercaderia.mercaderia.filter(m => m.idMercaderia !== deleteMercaderia.mercaderia.idMercaderia);
+          const newMercaderia = existingMercaderia.mercaderia
+                                .filter(m => m.idMercaderia !== deleteMercaderia.mercaderia.idMercaderia);
           cache.writeQuery({
             query: GET_ALL_MERCADERIA,
             data: { mercaderia: newMercaderia }
